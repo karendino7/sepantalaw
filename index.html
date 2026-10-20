@@ -1,84 +1,835 @@
+```html
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>عربی‌فای</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800&family=Amiri:wght@700&display=swap" rel="stylesheet">
-<style>
-:root{--bg:#f6f8f7;--ink:#0f2a3a;--mut:#4a6270;--teal:#1f7a6d;--sun:#f2c14e;--line:#d5e0dd;--hero:#0f2a3a;--herotxt:#f6f8f7;
-box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.9 Vazirmatn,Tahoma,sans-serif}
-.hero{background:var(--hero);color:var(--herotxt);padding:56px 22px 64px;text-align:center}
-.hero .ar{font:700 clamp(54px,16vw,110px)/1.3 Amiri,'Times New Roman',serif;color:var(--sun);margin:0}
-.hero h1{margin:6px 0 4px;font-weight:800;font-size:clamp(26px,6vw,40px)}
-.hero p{max-width:34em;margin:8px auto 28px;opacity:.85}
-.btn{display:inline-block;background:var(--sun);color:#0f2a3a;font-weight:800;padding:14px 32px;border-radius:999px;text-decoration:none}
-.btn:focus-visible{outline:3px solid #fff;outline-offset:3px}
-main{max-width:640px;margin:0 auto;padding:44px 22px}
-h2{font-size:24px;font-weight:800;margin:0 0 14px}
-.grades{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 42px;padding:0;list-style:none}
-.grades li{flex:1 1 90px;text-align:center;border:2px solid var(--teal);border-radius:14px;padding:12px 6px;font-weight:600}
-.grades b{display:block;font-size:26px;color:var(--teal)}
-ul.why{list-style:none;margin:0 0 42px;padding:0}
-ul.why li{padding:14px 0;border-top:1px solid var(--line)}
-ul.why li:last-child{border-bottom:1px solid var(--line)}
-ul.why strong{display:block}
-ul.why span{color:var(--mut);font-size:15px}
-.join{background:var(--teal);color:#fff;border-radius:22px;padding:30px 22px;text-align:center}
-.join p{margin:0 0 18px}
-.join .btn{background:#fff}
-.id{direction:ltr;display:inline-block;margin-top:14px;opacity:.9;font-weight:600}
-footer{text-align:center;color:var(--mut);font-size:14px;padding:0 22px 40px}
-.grades a{display:block;color:inherit;text-decoration:none}
-.grades li:has(a){padding:0}.grades li a{padding:12px 6px}
-.grades li:hover,.grades li:focus-within{background:var(--teal);color:#fff}
-.grades li:hover b,.grades li:focus-within b{color:var(--sun)}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#111111">
 
-:root{--bg:#000;--ink:#f2ede4;--mut:#b5ab9a;--teal:#b08d57;--sun:#d2b48c;--line:#2b261e;--hero:#000;--herotxt:#f2ede4;--on:#120d06}
-.btn{background:var(--teal);color:var(--on)}
-.btn:focus-visible{outline-color:var(--sun)}
-.grades li:hover,.grades li:focus-within{color:var(--on)}
-.grades li:hover b,.grades li:focus-within b{color:var(--on)}
-.others a[aria-current]{color:var(--on)}
-ol.lessons a::before{color:var(--on)}
-ol.lessons a:hover,ol.lessons a:focus-visible{background:#15120d}
-.join{color:var(--on)}
-.join .btn{background:var(--on);color:var(--sun)}
-.surah{display:block;width:100%;max-width:520px;margin:0 auto 24px;border-radius:14px;border:1px solid var(--line)}
-.surah-txt{font:700 clamp(22px,5vw,30px)/2.2 Amiri,'Times New Roman',serif;color:var(--sun);max-width:640px;margin:0 auto 24px}
-</style>
+    <title>منادیان سپنتا | موسسه مشاوره حقوقی و وکالت</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --gold: #d6b36a;
+            --gold-light: #f4dfa5;
+            --black: #101010;
+            --panel: #191919;
+            --text: #f5f1e8;
+            --muted: #b4b0a7;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+
+        body {
+            font-family: 'Vazirmatn', Tahoma, sans-serif;
+            background: var(--black);
+            color: var(--text);
+            line-height: 1.9;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button, input {
+            font: inherit;
+        }
+
+        .container {
+            width: min(1120px, 90%);
+            margin: auto;
+        }
+
+        /* نوار بالای سایت */
+
+        header {
+            background: rgba(16, 16, 16, .97);
+            border-bottom: 1px solid #373024;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+        }
+
+        .navbar {
+            min-height: 78px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 23px;
+            font-weight: 800;
+            color: var(--gold);
+            white-space: nowrap;
+        }
+
+        .logo span {
+            color: white;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+        }
+
+        nav a {
+            font-size: 13px;
+            color: #dedbd4;
+            transition: .25s;
+        }
+
+        nav a:hover {
+            color: var(--gold);
+        }
+
+        .menu-btn {
+            display: none;
+            background: none;
+            color: var(--gold);
+            border: 1px solid #5a492b;
+            padding: 6px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        /* بخش اصلی و عکس پس زمینه */
+
+        .hero {
+            min-height: 490px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background:
+                radial-gradient(ellipse at 15% 50%, #49391c55, transparent 45%),
+                linear-gradient(110deg, #111111, #1b1914);
+            border-bottom: 1px solid #30281b;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            left: 4%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: min(36%, 390px);
+            height: 390px;
+
+            /* عکس دلخواه خودت را اینجا قرار بده */
+            background-image: url("law.jpg");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+
+            opacity: .85;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 690px;
+            padding: 75px 0;
+        }
+
+        .eyebrow {
+            color: var(--gold);
+            font-size: 13px;
+            margin-bottom: 14px;
+        }
+
+        h1 {
+            font-size: clamp(29px, 5vw, 47px);
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        h1 span {
+            color: var(--gold);
+        }
+
+        .hero p {
+            color: var(--muted);
+            max-width: 590px;
+            margin-bottom: 28px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--gold-light), var(--gold));
+            color: #17130a;
+            padding: 11px 24px;
+            border-radius: 8px;
+            font-weight: 800;
+            border: none;
+            cursor: pointer;
+            transition: .25s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 28px #d6b36a30;
+        }
+
+        /* بخش های سایت */
+
+        .section {
+            padding: 75px 0;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .section-heading h2 {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .section-heading h2 span {
+            color: var(--gold);
+        }
+
+        .section-heading p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* جستجو */
+
+        .search-wrap {
+            max-width: 550px;
+            margin: 0 auto 35px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .search-wrap input {
+            flex: 1;
+            min-width: 0;
+            background: #1b1b1b;
+            border: 1px solid #403723;
+            color: white;
+            padding: 12px 15px;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        .search-wrap input:focus {
+            border-color: var(--gold);
+        }
+
+        .search-wrap button {
+            background: var(--gold);
+            color: #16120b;
+            border: none;
+            border-radius: 8px;
+            padding: 0 18px;
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        /* کارت های موضوعات */
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background: linear-gradient(145deg, #1c1c1c, #151515);
+            border: 1px solid #34302a;
+            border-radius: 15px;
+            padding: 25px;
+            transition: .3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold);
+        }
+
+        .card-icon {
+            width: 55px;
+            height: 55px;
+            display: grid;
+            place-items: center;
+            border-radius: 12px;
+            background: #d6b36a14;
+            border: 1px solid #d6b36a40;
+            font-size: 27px;
+            margin-bottom: 17px;
+        }
+
+        .card h3 {
+            color: var(--gold-light);
+            font-size: 19px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: var(--muted);
+            font-size: 13px;
+            margin-bottom: 17px;
+        }
+
+        .card a {
+            color: var(--gold);
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        /* مطالب آموزشی */
+
+        .articles {
+            background: #151515;
+            border-top: 1px solid #30281b;
+            border-bottom: 1px solid #30281b;
+        }
+
+        .article-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .article {
+            background: #1d1d1d;
+            border: 1px solid #34302a;
+            border-radius: 12px;
+            padding: 22px;
+            transition: .25s;
+        }
+
+        .article:hover {
+            border-color: #78613a;
+        }
+
+        .article small {
+            color: var(--gold);
+        }
+
+        .article h3 {
+            font-size: 17px;
+            margin: 7px 0;
+        }
+
+        .article p {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        /* درباره موسسه */
+
+        .about-box {
+            border: 1px solid #403723;
+            background: linear-gradient(135deg, #201d16, #171717);
+            border-radius: 16px;
+            padding: 35px 25px;
+            text-align: center;
+        }
+
+        .about-box h2 {
+            color: var(--gold);
+            margin-bottom: 12px;
+        }
+
+        .about-box p {
+            color: #c5c0b6;
+            max-width: 800px;
+            margin: 8px auto;
+        }
+
+        .registration {
+            color: var(--gold-light);
+            margin-top: 15px;
+        }
+
+        .phone {
+            display: inline-block;
+            color: var(--gold);
+            font-size: clamp(23px, 4vw, 32px);
+            font-weight: 800;
+            margin: 12px 0;
+            direction: ltr;
+        }
+
+        .contact-btn {
+            display: block;
+            width: fit-content;
+            margin: 12px auto;
+        }
+
+        .notice {
+            margin-top: 22px;
+            padding: 16px;
+            background: #292216;
+            border-right: 4px solid var(--gold);
+            border-radius: 8px;
+            color: #e8d9b7;
+            font-size: 13px;
+        }
+
+        /* پایین سایت */
+
+        footer {
+            padding: 28px 0;
+            text-align: center;
+            color: var(--muted);
+            font-size: 12px;
+            border-top: 1px solid #30281b;
+        }
+
+        footer span {
+            color: var(--gold);
+        }
+
+        .empty {
+            display: none;
+            color: var(--muted);
+            text-align: center;
+            padding: 20px;
+            grid-column: 1 / -1;
+        }
+
+        /* تبلت */
+
+        @media (max-width: 850px) {
+            nav {
+                gap: 12px;
+            }
+
+            nav a {
+                font-size: 12px;
+            }
+
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero::after {
+                width: 34%;
+                height: 300px;
+            }
+        }
+
+        /* موبایل */
+
+        @media (max-width: 650px) {
+            .navbar {
+                min-height: 68px;
+                flex-wrap: wrap;
+            }
+
+            .logo {
+                font-size: 19px;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            nav {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+                padding-bottom: 12px;
+            }
+
+            nav.open {
+                display: flex;
+            }
+
+            nav a {
+                padding: 10px 5px;
+                border-top: 1px solid #30281b;
+                font-size: 14px;
+            }
+
+            .hero {
+                min-height: 450px;
+            }
+
+            .hero-content {
+                padding: 55px 0;
+            }
+
+            .hero::after {
+                left: -5%;
+                width: 65%;
+                height: 240px;
+                top: auto;
+                bottom: 0;
+                transform: none;
+                opacity: .2;
+            }
+
+            .grid,
+            .article-list {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 55px 0;
+            }
+
+            .search-wrap {
+                flex-wrap: wrap;
+            }
+
+            .search-wrap input {
+                flex: 1 1 65%;
+            }
+
+            .search-wrap button {
+                padding: 10px 15px;
+            }
+        }
+    </style>
 </head>
+
 <body>
-<header class="hero">
-  
-  <p class="ar" lang="ar" dir="rtl">تَعَلَّمِ العَرَبِيَّةَ</p>
-  <h1>عربی‌فای</h1>
-  <p>آموزش عربی پایه‌های هفتم، هشتم و نهم؛ ساده، قابل‌فهم و مناسب آمادگی امتحان.</p>
-  
+
+<header>
+    <div class="container navbar">
+
+        <a href="#home" class="logo">
+            منادیان <span>سپنتا</span> ⚖
+        </a>
+
+        <button class="menu-btn" id="menuBtn"
+                aria-label="باز کردن منو"
+                aria-expanded="false">
+            ☰ منو
+        </button>
+
+        <nav id="nav">
+            <a href="#home">خانه</a>
+            <a href="#fields">موضوعات حقوقی</a>
+            <a href="#articles">مطالب آموزشی</a>
+            <a href="#about">درباره موسسه</a>
+        </nav>
+
+    </div>
 </header>
+
 <main>
-  <h2>برای کدام پایه؟</h2>
-  <ul class="grades">
-    <li><a href="index7.html"><b>۷</b>هفتم</a></li>
-    <li><a href="index8.html"><b>۸</b>هشتم</a></li>
-    <li><a href="index9.html"><b>۹</b>نهم</a></li>
-  </ul>
-  <h2>در کانال چه می‌بینید؟</h2>
-  <ul class="why">
-    <li><strong>درس‌ها به زبان ساده</strong><span>مطالب عربی هر پایه با روش تدریس روشن و قابل‌فهم ارائه می‌شود.</span></li>
-    <li><strong>مرور نکات مهم</strong><span>نکته‌های کلیدی هر درس را سریع دوباره ببینید.</span></li>
-    <li><strong>آمادگی برای امتحان</strong><span>با مرور منظم، با اطمینان بیشتری سر جلسه بروید.</span></li>
-    <li><strong>رفع اشکال درسی</strong><span>اگر بخشی از درس برایتان سخت است، اینجا همراه شماست.</span></li>
-  </ul>
-  <section class="join">
-    <p>عربی را بیاموز و درهای موفقیت را بگشا.</p>
-  <P>استاد همتی راد</P>
-    <span class="id">@arabiiedu</span>
-  </section>
+
+    <!-- بخش اول سایت -->
+
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+
+                <div class="eyebrow">
+                    موسسه مشاوره حقوقی و وکالت
+                </div>
+
+                <h1>
+                    دانش حقوقی، راهی برای
+                    <span>تصمیم درست</span>
+                </h1>
+
+                <p>
+                    با مفاهیم حقوقی، قوانین و حقوق خود آشنا شوید.
+                    مطالب این سایت تلاش می‌کنند موضوعات پیچیده حقوقی را
+                    به زبانی ساده و قابل‌فهم توضیح دهند.
+                </p>
+
+                <a href="#fields" class="btn">
+                    شروع مطالعه ←
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- موضوعات حقوقی -->
+
+    <section class="section" id="fields">
+        <div class="container">
+
+            <div class="section-heading">
+                <h2>حوزه‌های <span>حقوقی</span></h2>
+                <p>
+                    موضوع موردنظر خود را انتخاب کنید و با مفاهیم آن آشنا شوید.
+                </p>
+            </div>
+
+            <div class="search-wrap">
+                <input type="search" id="search"
+                       placeholder="مثلاً قرارداد، طلاق، سرقت..."
+                       aria-label="جست‌وجوی مطالب حقوقی">
+
+                <button id="searchBtn">جست‌وجو</button>
+            </div>
+
+            <div class="grid" id="cards">
+
+                <article class="card"
+                         data-search="حقوقی قرارداد تعهد مدنی قانون">
+                    <div class="card-icon">⚖️</div>
+                    <h3>حقوقی</h3>
+                    <p>
+                        آشنایی با قراردادها، تعهدات، مسئولیت مدنی،
+                        مطالبه طلب و اختلافات میان اشخاص.
+                    </p>
+                    <a href="#civil">مطالعه توضیحات ←</a>
+                </article>
+
+                <article class="card"
+                         data-search="کیفری جرم مجازات سرقت کلاهبرداری شکایت">
+                    <div class="card-icon">🛡️</div>
+                    <h3>کیفری</h3>
+                    <p>
+                        شناخت مفاهیمی مانند جرم، مجازات، شکایت کیفری،
+                        سرقت، کلاهبرداری و مراحل رسیدگی.
+                    </p>
+                    <a href="#criminal">مطالعه توضیحات ←</a>
+                </article>
+
+                <article class="card"
+                         data-search="خانواده ازدواج طلاق مهریه نفقه حضانت">
+                    <div class="card-icon">🏠</div>
+                    <h3>خانواده</h3>
+                    <p>
+                        آشنایی با ازدواج، طلاق، مهریه، نفقه،
+                        حضانت فرزند و حقوق اعضای خانواده.
+                    </p>
+                    <a href="#family">مطالعه توضیحات ←</a>
+                </article>
+
+                <article class="card"
+                         data-search="ثبتی سند مالکیت ثبت ملک شرکت">
+                    <div class="card-icon">📜</div>
+                    <h3>ثبتی</h3>
+                    <p>
+                        آشنایی با اسناد رسمی، ثبت املاک،
+                        مالکیت و ثبت شرکت‌ها و تغییرات آن‌ها.
+                    </p>
+                    <a href="#registration">مطالعه توضیحات ←</a>
+                </article>
+
+                <article class="card"
+                         data-search="املاک ملک زمین خانه اجاره خرید فروش">
+                    <div class="card-icon">🏢</div>
+                    <h3>دعاوی ملکی</h3>
+                    <p>
+                        آشنایی با اختلافات مالکیت، اجاره،
+                        خریدوفروش ملک و مسائل مرتبط با اسناد.
+                    </p>
+                    <a href="#property">مطالعه توضیحات ←</a>
+                </article>
+
+                <article class="card"
+                         data-search="قرارداد معامله چک سفته تعهد">
+                    <div class="card-icon">🖋️</div>
+                    <h3>قراردادها و معاملات</h3>
+                    <p>
+                        شناخت اصول قرارداد، تعهدات طرفین،
+                        چک، سفته و نکات مهم پیش از امضا.
+                    </p>
+                    <a href="#contracts">مطالعه توضیحات ←</a>
+                </article>
+
+                <div class="empty" id="empty">
+                    مطلبی با این عبارت پیدا نشد.
+                    عبارت دیگری را امتحان کنید.
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- مطالب آموزشی -->
+
+    <section class="section articles" id="articles">
+        <div class="container">
+
+            <div class="section-heading">
+                <h2>آشنایی با مفاهیم <span>حقوقی</span></h2>
+                <p>چند توضیح مقدماتی برای شروع یادگیری</p>
+            </div>
+
+            <div class="article-list">
+
+                <article class="article" id="civil">
+                    <small>حوزه حقوقی</small>
+                    <h3>حقوقی چیست؟</h3>
+                    <p>
+                        حقوق مدنی و سایر مقررات حقوقی، روابط اشخاص،
+                        قراردادها، تعهدات و مسئولیت‌های قانونی را
+                        در چارچوب قوانین بررسی می‌کنند. برای مثال،
+                        اختلاف بر سر پرداخت بدهی می‌تواند جنبه حقوقی داشته باشد.
+                    </p>
+                </article>
+
+                <article class="article" id="criminal">
+                    <small>حوزه کیفری</small>
+                    <h3>حقوق کیفری چیست؟</h3>
+                    <p>
+                        حقوق کیفری به تعریف جرایم، مجازات‌ها و شرایط
+                        مسئولیت کیفری می‌پردازد. روند رسیدگی به هر پرونده
+                        به نوع اتهام، ادله و قوانین قابل اجرا بستگی دارد.
+                    </p>
+                </article>
+
+                <article class="article" id="family">
+                    <small>حوزه خانواده</small>
+                    <h3>حقوق خانواده شامل چه مواردی است؟</h3>
+                    <p>
+                        این حوزه مسائلی مانند ازدواج، طلاق، مهریه،
+                        نفقه و حضانت را در بر می‌گیرد. شرایط قانونی
+                        هر موضوع باید با توجه به مقررات مربوط بررسی شود.
+                    </p>
+                </article>
+
+                <article class="article" id="registration">
+                    <small>حوزه ثبتی</small>
+                    <h3>حقوق ثبتی چیست؟</h3>
+                    <p>
+                        حقوق ثبتی به مقررات ثبت اسناد، املاک و برخی
+                        امور مربوط به شرکت‌ها می‌پردازد. بررسی وضعیت
+                        سند و سوابق ثبت می‌تواند در شناخت حقوق مالکیت
+                        اهمیت داشته باشد.
+                    </p>
+                </article>
+
+                <article class="article" id="property">
+                    <small>دعاوی ملکی</small>
+                    <h3>اختلافات ملکی</h3>
+                    <p>
+                        اختلاف بر سر مالکیت، تصرف، اجاره یا اجرای
+                        قراردادهای ملکی می‌تواند به رسیدگی حقوقی نیاز
+                        داشته باشد. نوع دعوا و مدارک موجود در انتخاب
+                        مسیر قانونی اهمیت دارند.
+                    </p>
+                </article>
+
+                <article class="article" id="contracts">
+                    <small>قراردادها</small>
+                    <h3>پیش از امضای قرارداد چه کنیم؟</h3>
+                    <p>
+                        طرفین، موضوع قرارداد، مبلغ، تعهدات، زمان‌بندی
+                        و شرایط پایان یا فسخ باید با دقت بررسی شوند.
+                        در قراردادهای مهم، دریافت مشاوره حقوقی می‌تواند
+                        از بروز اختلاف جلوگیری کند.
+                    </p>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- اطلاعات موسسه -->
+
+    <section class="section" id="about">
+        <div class="container">
+
+            <div class="about-box">
+
+                <h2>موسسه منادیان سپنتا</h2>
+
+                <p>
+                    موسسه مشاوره حقوقی و وکالت
+                </p>
+
+                <p class="registration">
+                    شماره ثبت: 24229
+                </p>
+
+                <a class="phone" href="tel:09122142189">
+                    09122142189📞
+                </a>
+
+                
+
+                <div class="notice">
+                    مشاوره تخصصی | پیگیری تا حصول نتیجه
+                </div>
+
+            </div>
+        </div>
+    </section>
+
 </main>
-<footer>از زحمات استاد عزیز برای آموزش بهتر دانش‌آموزان سپاسگزاریم ❤️</footer>
+
+
+<script>
+    const menuBtn = document.getElementById('menuBtn');
+    const nav = document.getElementById('nav');
+    const search = document.getElementById('search');
+    const searchBtn = document.getElementById('searchBtn');
+    const cards = [...document.querySelectorAll('#cards .card')];
+    const empty = document.getElementById('empty');
+
+    // منوی موبایل
+    menuBtn.addEventListener('click', () => {
+        const opened = nav.classList.toggle('open');
+
+        menuBtn.setAttribute('aria-expanded', String(opened));
+        menuBtn.textContent = opened ? '✕ بستن' : '☰ منو';
+    });
+
+    nav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            nav.classList.remove('open');
+            menuBtn.setAttribute('aria-expanded', 'false');
+            menuBtn.textContent = '☰ منو';
+        });
+    });
+
+    // جستجوی موضوعات حقوقی
+    function searchCards() {
+        const query = search.value.trim().toLocaleLowerCase('fa');
+        let visible = 0;
+
+        cards.forEach(card => {
+            const content = (
+                card.innerText + ' ' + card.dataset.search
+            ).toLocaleLowerCase('fa');
+
+            const match = content.includes(query);
+
+            card.style.display = match ? '' : 'none';
+
+            if (match) visible++;
+        });
+
+        empty.style.display = visible === 0 ? 'block' : 'none';
+    }
+
+    searchBtn.addEventListener('click', searchCards);
+    search.addEventListener('input', searchCards);
+
+    search.addEventListener('keydown', event => {
+        if (event.key === 'Enter') {
+            searchCards();
+        }
+    });
+</script>
+
 </body>
 </html>
+```
