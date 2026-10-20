@@ -1,4 +1,4 @@
-```html
+
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
@@ -506,6 +506,25 @@
                 padding: 10px 15px;
             }
         }
+        /* عکس فقط در گوشی */
+.mobile-law-image {
+    display: none;
+}
+
+@media (max-width: 650px) {
+    .hero::after {
+        display: none;
+    }
+
+    .mobile-law-image {
+        display: block;
+        width: 100%;
+        max-width: 280px;
+        max-height: 220px;
+        object-fit: contain;
+        margin: 15px auto 20px;
+    }
+}
     </style>
 </head>
 
@@ -560,7 +579,7 @@
                 <a href="#fields" class="btn">
                     شروع مطالعه ←
                 </a>
-
+<img src="law.jpg" alt="تصویر حقوقی" class="mobile-law-image">
             </div>
         </div>
     </section>
