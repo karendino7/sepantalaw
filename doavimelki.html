@@ -1,0 +1,680 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#111111">
+
+    <title>منادیان سپنتا | موسسه مشاوره حقوقی و وکالت</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    
+    <style>
+        :root {
+            --gold: #d6b36a;
+            --gold-light: #f4dfa5;
+            --black: #101010;
+            --panel: #191919;
+            --text: #f5f1e8;
+            --muted: #b4b0a7;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+
+        body {
+            font-family: 'Vazirmatn', Tahoma, sans-serif;
+            background: var(--black);
+            color: var(--text);
+            line-height: 1.9;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button, input {
+            font: inherit;
+        }
+
+        .container {
+            width: min(1120px, 90%);
+            margin: auto;
+        }
+
+        /* نوار بالای سایت */
+
+        header {
+            background: rgba(16, 16, 16, .97);
+            border-bottom: 1px solid #373024;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+        }
+
+        .navbar {
+            min-height: 78px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 23px;
+            font-weight: 800;
+            color: var(--gold);
+            white-space: nowrap;
+        }
+
+        .logo span {
+            color: white;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+        }
+
+        nav a {
+            font-size: 13px;
+            color: #dedbd4;
+            transition: .25s;
+        }
+
+        nav a:hover {
+            color: var(--gold);
+        }
+
+        .menu-btn {
+            display: none;
+            background: none;
+            color: var(--gold);
+            border: 1px solid #5a492b;
+            padding: 6px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        /* بخش اصلی و عکس پس زمینه */
+
+        .hero {
+            min-height: 490px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background:
+                radial-gradient(ellipse at 15% 50%, #49391c55, transparent 45%),
+                linear-gradient(110deg, #111111, #1b1914);
+            border-bottom: 1px solid #30281b;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            left: 4%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: min(36%, 390px);
+            height: 390px;
+
+            /* عکس دلخواه خودت را اینجا قرار بده */
+            background-image: url("law.jpg");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+
+            opacity: .85;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 690px;
+            padding: 75px 0;
+        }
+
+        .eyebrow {
+            color: var(--gold);
+            font-size: 13px;
+            margin-bottom: 14px;
+        }
+
+        h1 {
+            font-size: clamp(29px, 5vw, 47px);
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+        .center h1 {
+            color: var(--gold);
+            text-align: center;
+        }
+
+        h1 span {
+            color: var(--gold);
+        }
+
+        .hero p {
+            color: var(--muted);
+            max-width: 590px;
+            margin-bottom: 28px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--gold-light), var(--gold));
+            color: #17130a;
+            padding: 11px 24px;
+            border-radius: 8px;
+            font-weight: 800;
+            border: none;
+            cursor: pointer;
+            transition: .25s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 28px #d6b36a30;
+        }
+
+        /* بخش های سایت */
+
+        .section {
+            padding: 75px 0;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .section-heading h2 {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .section-heading h2 span {
+            color: var(--gold);
+        }
+
+        .section-heading p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* جستجو */
+
+        .search-wrap {
+            max-width: 550px;
+            margin: 0 auto 35px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .search-wrap input {
+            flex: 1;
+            min-width: 0;
+            background: #1b1b1b;
+            border: 1px solid #403723;
+            color: white;
+            padding: 12px 15px;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        .search-wrap input:focus {
+            border-color: var(--gold);
+        }
+
+        .search-wrap button {
+            background: var(--gold);
+            color: #16120b;
+            border: none;
+            border-radius: 8px;
+            padding: 0 18px;
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        /* کارت های موضوعات */
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background: linear-gradient(145deg, #1c1c1c, #151515);
+            border: 1px solid #34302a;
+            border-radius: 15px;
+            padding: 25px;
+            transition: .3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold);
+        }
+
+        .card-icon {
+            width: 55px;
+            height: 55px;
+            display: grid;
+            place-items: center;
+            border-radius: 12px;
+            background: #d6b36a14;
+            border: 1px solid #d6b36a40;
+            font-size: 27px;
+            margin-bottom: 17px;
+        }
+
+        .card h3 {
+            color: var(--gold-light);
+            font-size: 19px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: var(--muted);
+            font-size: 13px;
+            margin-bottom: 17px;
+        }
+
+        .card a {
+            color: var(--gold);
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        /* مطالب آموزشی */
+
+        .articles {
+            background: #151515;
+            border-top: 1px solid #30281b;
+            border-bottom: 1px solid #30281b;
+        }
+
+        .article-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .article {
+            background: #1d1d1d;
+            border: 1px solid #34302a;
+            border-radius: 12px;
+            padding: 22px;
+            transition: .25s;
+        }
+
+        .article:hover {
+            border-color: #78613a;
+        }
+
+        .article small {
+            color: var(--gold);
+        }
+
+        .article h3 {
+            font-size: 17px;
+            margin: 7px 0;
+        }
+
+        .article p {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        /* درباره موسسه */
+
+        .about-box {
+            border: 1px solid #403723;
+            background: linear-gradient(135deg, #201d16, #171717);
+            border-radius: 16px;
+            padding: 35px 25px;
+            text-align: center;
+        }
+
+        .about-box h2 {
+            color: var(--gold);
+            margin-bottom: 12px;
+        }
+
+        .about-box p {
+            color: #c5c0b6;
+            max-width: 800px;
+            margin: 8px auto;
+        }
+
+        .registration {
+            color: var(--gold-light);
+            margin-top: 15px;
+        }
+
+        .phone {
+            display: inline-block;
+            color: var(--gold);
+            font-size: clamp(23px, 4vw, 32px);
+            font-weight: 800;
+            margin: 12px 0;
+            direction: ltr;
+        }
+
+        .contact-btn {
+            display: block;
+            width: fit-content;
+            margin: 12px auto;
+        }
+
+        .notice {
+            margin-top: 22px;
+            padding: 16px;
+            background: #292216;
+            border-right: 4px solid var(--gold);
+            border-radius: 8px;
+            color: #e8d9b7;
+            font-size: 13px;
+        }
+
+        /* پایین سایت */
+
+        footer {
+            padding: 28px 0;
+            text-align: center;
+            color: var(--muted);
+            font-size: 12px;
+            border-top: 1px solid #30281b;
+        }
+
+        footer span {
+            color: var(--gold);
+        }
+
+        .empty {
+            display: none;
+            color: var(--muted);
+            text-align: center;
+            padding: 20px;
+            grid-column: 1 / -1;
+        }
+
+        /* تبلت */
+
+        @media (max-width: 850px) {
+            nav {
+                gap: 12px;
+            }
+
+            nav a {
+                font-size: 12px;
+            }
+
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero::after {
+                width: 34%;
+                height: 300px;
+            }
+        }
+
+        /* موبایل */
+
+        @media (max-width: 650px) {
+            .navbar {
+                min-height: 68px;
+                flex-wrap: wrap;
+            }
+
+            .logo {
+                font-size: 19px;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            nav {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+                padding-bottom: 12px;
+            }
+
+            nav.open {
+                display: flex;
+            }
+
+            nav a {
+                padding: 10px 5px;
+                border-top: 1px solid #30281b;
+                font-size: 14px;
+            }
+
+            .hero {
+                min-height: 450px;
+            }
+
+            .hero-content {
+                padding: 55px 0;
+            }
+
+            .hero::after {
+                left: -5%;
+                width: 65%;
+                height: 240px;
+                top: auto;
+                bottom: 0;
+                transform: none;
+                opacity: .2;
+            }
+
+            .grid,
+            .article-list {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 55px 0;
+            }
+
+            .search-wrap {
+                flex-wrap: wrap;
+            }
+
+            .search-wrap input {
+                flex: 1 1 65%;
+            }
+
+            .search-wrap button {
+                padding: 10px 15px;
+            }
+        }
+        /* عکس فقط در گوشی */
+.mobile-law-image {
+    display: none;
+}
+
+@media (max-width: 650px) {
+    .hero::after {
+        display: none;
+    }
+
+    .mobile-law-image {
+        display: block;
+        width: 100%;
+        max-width: 280px;
+        max-height: 220px;
+        object-fit: contain;
+        margin: 15px auto 20px;
+    }
+}
+    </style>
+</head>
+<body>
+    <header>
+    <div class="container navbar">
+
+        <a href="#home" class="logo">
+            منادیان <span>سپنتا</span> ⚖
+        </a>
+
+        
+
+     
+
+    </div>
+</header>
+
+<main>
+
+    <!-- بخش اول سایت -->
+
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+
+                <div class="eyebrow">
+                    موسسه مشاوره حقوقی و وکالت
+                </div>
+
+                <h1>
+                    
+                    <span>دعاوی ملکی</span>
+                </h1>
+
+                <p>
+                    با مفاهیم حقوقی، قوانین و حقوق خود آشنا شوید.
+                    مطالب این سایت تلاش می‌کنند موضوعات پیچیده حقوقی را
+                    به زبانی ساده و قابل‌فهم توضیح دهند.
+                </p>
+
+              
+<img src="law.jpg" alt="تصویر حقوقی" class="mobile-law-image">
+            </div>
+        </div>
+    </section>
+    <div class="container">
+        <div class="center">
+        <h1>توضیحات</h1>
+        </div>
+        <hr>
+<p>دعاوی ملکی به اختلافات و پرونده‌های حقوقی مربوط به املاک و مستغلات مانند زمین، خانه، آپارتمان و مغازه گفته می‌شود. هدف از رسیدگی به این دعاوی، مشخص‌کردن حقوق مالکانه، حل اختلاف میان اشخاص و اجرای قوانین مربوط به املاک است.
+
+یکی از انواع دعاوی ملکی، دعوای مالکیت است که در آن شخص برای اثبات مالکیت خود نسبت به یک ملک اقدام می‌کند. دعوای تصرف نیز زمانی مطرح می‌شود که دربارهٔ تصرف یا استفاده از ملک اختلافی وجود داشته باشد.
+
+از دیگر دعاوی ملکی می‌توان به اختلافات مربوط به خریدوفروش ملک، الزام به تنظیم سند رسمی، تخلیهٔ ملک، مطالبهٔ اجاره‌بها، فسخ قراردادهای ملکی و تقسیم املاک مشترک اشاره کرد. همچنین ممکن است دربارهٔ حدود زمین، حقوق عبور، ساخت‌وساز غیرمجاز یا خسارت واردشده به ملک اختلاف ایجاد شود.
+
+در رسیدگی به دعاوی ملکی، مدارکی مانند سند مالکیت، قرارداد خریدوفروش، اجاره‌نامه، رسیدهای پرداخت، نقشه‌های ثبتی و نظر کارشناسان ممکن است اهمیت داشته باشند. مرجع رسیدگی با توجه به نوع دعوا، مدارک موجود و قوانین مربوط تصمیم می‌گیرد.
+
+یکی از موضوعات مهم در این حوزه، تفاوت میان مالکیت و تصرف است. مالکیت به حق قانونی شخص نسبت به ملک اشاره دارد، درحالی‌که تصرف به تسلط یا استفادهٔ عملی از ملک مربوط می‌شود. بنابراین، متصرف یک ملک لزوماً مالک آن نیست.
+
+دعاوی ملکی ممکن است به قوانین مدنی، مقررات ثبت اسناد و املاک، قوانین مربوط به اجاره و مقررات ساخت‌وساز ارتباط داشته باشند. نوع دعوا و مدارک لازم برای اثبات آن به قوانین کشور و شرایط پرونده بستگی دارد.
+
+در مجموع، دعاوی ملکی حوزه‌ای از رسیدگی‌های حقوقی است که اختلافات مربوط به مالکیت، تصرف، قراردادها و حقوق مرتبط با املاک را بررسی می‌کند و هدف آن تعیین حقوق طرفین و حل قانونی اختلافات است.</p>
+</div>
+ <section class="section" id="about">
+        <div class="container">
+
+            <div class="about-box">
+
+                <h2>موسسه منادیان سپنتا</h2>
+
+                <p>
+                    موسسه مشاوره حقوقی و وکالت
+                </p>
+
+                <p class="registration">
+                    شماره ثبت: 24229
+                </p>
+
+                <a class="phone" href="tel:09122142189">
+                    09122142189📞
+                </a>
+
+                
+
+                <div class="notice" >
+                    
+                    مشاوره تخصصی | پیگیری تا حصول نتیجه
+                </div>
+
+            </div>
+        </div>
+    </section>
+<script>
+    const menuBtn = document.getElementById('menuBtn');
+    const nav = document.getElementById('nav');
+    const search = document.getElementById('search');
+    const searchBtn = document.getElementById('searchBtn');
+    const cards = [...document.querySelectorAll('#cards .card')];
+    const empty = document.getElementById('empty');
+
+    // منوی موبایل
+    menuBtn.addEventListener('click', () => {
+        const opened = nav.classList.toggle('open');
+
+        menuBtn.setAttribute('aria-expanded', String(opened));
+        menuBtn.textContent = opened ? '✕ بستن' : '☰ منو';
+    });
+
+    nav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            nav.classList.remove('open');
+            menuBtn.setAttribute('aria-expanded', 'false');
+            menuBtn.textContent = '☰ منو';
+        });
+    });
+
+    // جستجوی موضوعات حقوقی
+    function searchCards() {
+        const query = search.value.trim().toLocaleLowerCase('fa');
+        let visible = 0;
+
+        cards.forEach(card => {
+            const content = (
+                card.innerText + ' ' + card.dataset.search
+            ).toLocaleLowerCase('fa');
+
+            const match = content.includes(query);
+
+            card.style.display = match ? '' : 'none';
+
+            if (match) visible++;
+        });
+
+        empty.style.display = visible === 0 ? 'block' : 'none';
+    }
+
+    searchBtn.addEventListener('click', searchCards);
+    search.addEventListener('input', searchCards);
+
+    search.addEventListener('keydown', event => {
+        if (event.key === 'Enter') {
+            searchCards();
+        }
+    });
+</script>
+</body>
+</html>
